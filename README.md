@@ -1,1 +1,1 @@
-# Wellness Tracker
+# Meal Log + Wellness Chart
