@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 import styles from './Auth.module.css';
 
 const Auth = () => {
@@ -16,6 +17,14 @@ const Auth = () => {
 
     const submitHandler = (event) => {
         event.preventDefault();
+
+        const endpoint = register ? '/login' : '/register';
+        const body = {
+            email: emailInput,
+            password,
+        }
+
+        axios.post({ endpoint }, body).then(res => console.log(res)).catch(err => { console.log(err) })
     }
 
     const handleClick = () => {
