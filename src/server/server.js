@@ -16,8 +16,10 @@ const app = express();
 app.use(cors())
 app.use(express.json());
 
-app.post('/register');
-app.post('/login');
+// TODO: Add contoller functions for handling auth
+
+// app.post('/register');
+// app.post('/login');
 
 Entry.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
 Wellness_score.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
