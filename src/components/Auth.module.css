@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    min-height: 100vh;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+p {
+    display: inline-block;
+    margin-right: .6rem;
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem;
+    
+}
+
+.formInput {
+    width: 95%;
+    padding: 1.2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.formToggle {
+    border: none;
+    background-color: transparent;
+    color: blue;
+    font-weight: bold;
+}
+
+.formToggle:hover {
+    text-decoration: underline;
+}
+
+.formSubmitBtn {
+    padding: 1.6rem;
+    font-size: 1.3rem;
+    width: 95%;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
