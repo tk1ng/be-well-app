@@ -10,6 +10,7 @@ const sequelize = require('./util/database');
 const Entry = require('./models/entry');
 const User = require('./models/user');
 const Wellness_score = require('./models/wellness');
+const { register, login } = require('./controllers/auth');
 
 const app = express();
 
@@ -18,8 +19,8 @@ app.use(express.json());
 
 // TODO: Add contoller functions for handling auth
 
-// app.post('/register');
-// app.post('/login');
+app.post('/register', register);
+app.post('/login', login);
 
 Entry.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
 Wellness_score.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
