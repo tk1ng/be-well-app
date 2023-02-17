@@ -1,1 +1,1 @@
-# Meal Log + Wellness Chart
+# Meal Log + Wellness Chart (Be Well)
