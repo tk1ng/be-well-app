@@ -24,11 +24,14 @@ module.exports = {
             const token = createToken({ email: newUser.dataValues.email, id: newUser.dataValues.id });
             const exp = Date.now() + 1000 * 60 * 60 * 48;
 
-            res.status(201).header('x-auth-token', token).send({
-                email: newUser.dataValues.email,
-                id: newUser.dataValues.id,
-                exp
-            });
+            res.status(201)
+                .header('x-auth-token', token)
+                .header('access-control-expose-headers', 'x-auth-token')
+                .send({
+                    email: newUser.dataValues.email,
+                    id: newUser.dataValues.id,
+                    exp
+                });
 
         } catch (err) {
             console.log(err)
@@ -54,10 +57,13 @@ module.exports = {
 
                     const exp = Date.now() + 1000 * 60 * 60 * 48;
 
-                    res.status(200).header('x-auth-token', token).send({
-                        id: user.dataValues.id,
-                        exp
-                    });
+                    res.status(200)
+                        .header('x-auth-token', token)
+                        .header('access-control-expose-headers', 'x-auth-token')
+                        .send({
+                            id: user.dataValues.id,
+                            exp
+                        });
                 })
                 .catch(err => console.log(err));
 

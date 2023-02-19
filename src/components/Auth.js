@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import AuthContext from '../store/authContext';
 import styles from './Auth.module.css';
 
 const Auth = () => {
     const [emailInput, setEmailInput] = useState('');
     const [password, setPassword] = useState('');
     const [register, setRegister] = useState(true);
+
+    const authContext = useContext(AuthContext);
 
     const emailChangeHandler = (event) => {
         setEmailInput(event.target.value)
@@ -25,7 +28,18 @@ const Auth = () => {
             password,
         }
 
-        axios.post(`http://localhost:4040/${endpoint}`, body).then(res => console.log(res)).catch(err => { console.log(err) })
+        axios.post(`http://localhost:4040/${endpoint}`, body)
+            .then(res => {
+                const { email, id, exp } = res.data;
+                const token = res.headers['x-auth-token'];
+
+                authContext.login(token, exp, id);
+
+            })
+            .catch(err => { console.log(err) })
+
+        setEmailInput('');
+        setPassword('');
     }
 
     const handleClick = () => {

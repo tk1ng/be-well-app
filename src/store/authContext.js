@@ -61,7 +61,7 @@ export const AuthContextProvider = (props) => {
         }
     }
 
-    const login = (token, userId, exp) => {
+    const login = (token, exp, userId) => {
         setToken(token);
         setUserId(userId);
 
@@ -84,7 +84,7 @@ export const AuthContextProvider = (props) => {
 
     return (
         <AuthContext.Provider value={context}>
-            {props.childre}
+            {props.children}
         </AuthContext.Provider>
     )
 }
