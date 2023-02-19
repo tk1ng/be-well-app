@@ -16,18 +16,17 @@ module.exports = {
                 return res.status(400).send('User already exists. Try signing in.');
             }
 
-            const salt = bcrypt.genSalt(10);
-            const hashedPass = bcrypt.hash(password, salt);
+            const salt = await bcrypt.genSalt(10);
+            const hashedPass = await bcrypt.hash(password, salt);
 
             const newUser = await User.create({ email: email, passHash: hashedPass });
 
-            const token = createToken(newUser.dataValues.email, newUser.dataValues.id);
+            const token = createToken({ email: newUser.dataValues.email, id: newUser.dataValues.id });
             const exp = Date.now() + 1000 * 60 * 60 * 48;
 
-            res.status(201).send({
-                email: user.dataValues,
-                id: user.dataValues.id,
-                token,
+            res.status(201).header('x-auth-token', token).send({
+                email: newUser.dataValues.email,
+                id: newUser.dataValues.id,
                 exp
             });
 
@@ -57,7 +56,6 @@ module.exports = {
                         const exp = Date.now() + 1000 * 60 * 60 * 48;
 
                         res.status(201).send({
-                            email: user.dataValues.email,
                             id: user.dataValues.id,
                             token,
                             exp
