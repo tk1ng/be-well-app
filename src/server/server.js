@@ -11,13 +11,12 @@ const Entry = require('./models/entry');
 const User = require('./models/user');
 const Wellness_score = require('./models/wellness');
 const { register, login } = require('./controllers/auth');
+const { isAuthenticated } = require('./middleware/isAuthenticated');
 
 const app = express();
 
 app.use(cors())
 app.use(express.json());
-
-// TODO: Add contoller functions for handling auth
 
 app.post('/register', register);
 app.post('/login', login);

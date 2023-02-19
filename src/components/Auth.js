@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './Auth.module.css';
 
@@ -18,13 +19,13 @@ const Auth = () => {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        const endpoint = register ? '/login' : '/register';
+        const endpoint = register ? 'register' : 'login';
         const body = {
             email: emailInput,
             password,
         }
 
-        axios.post({ endpoint }, body).then(res => console.log(res)).catch(err => { console.log(err) })
+        axios.post(`http://localhost:4040/${endpoint}`, body).then(res => console.log(res)).catch(err => { console.log(err) })
     }
 
     const handleClick = () => {
