@@ -34,37 +34,36 @@ module.exports = {
             console.log(err)
         }
     },
-    // TODO: Refactor for readability to match register function using async
-    login: (req, res) => {
-        const { email, password } = req.body;
+    login: async (req, res) => {
 
-        User.findOne({ where: { email: email } })
-            .then(user => {
-                if (!user) {
-                    console.log('No existing user, try signing up!');
-                    return res.status(404).send('No existing user, try signing up!');
-                }
+        try {
+            const { email, password } = req.body;
+            const user = await User.findOne({ where: { email: email } });
 
-                bcrypt.compare(password, user.passHash)
-                    .then(isMatch => {
-                        if (!isMatch) {
-                            return res.status(401).send('Not Authorized. Invalid email/password')
-                        }
+            if (!user) {
+                return res.status(404).send('No existing user, try signing up!');
+            }
 
-                        const token = createToken({ email: user.dataValues.email, id: user.dataValues.id });
+            bcrypt.compare(password, user.passHash)
+                .then(isMatch => {
+                    if (!isMatch) {
+                        return res.status(401).send('Invalid email/password')
+                    }
 
-                        const exp = Date.now() + 1000 * 60 * 60 * 48;
+                    const token = createToken({ email: user.dataValues.email, id: user.dataValues.id });
 
-                        res.status(201).send({
-                            id: user.dataValues.id,
-                            token,
-                            exp
-                        });
+                    const exp = Date.now() + 1000 * 60 * 60 * 48;
 
-                    })
-                    .catch(err => console.log(err));
-            })
-            .catch(err => console.log(err));
+                    res.status(201).header('x-auth-token', token).send({
+                        id: user.dataValues.id,
+                        exp
+                    });
+                })
+                .catch(err => console.log(err));
+
+        } catch (err) {
+            console.log(err);
+        }
     }
 }
 
