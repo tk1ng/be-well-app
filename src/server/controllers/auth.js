@@ -54,7 +54,7 @@ module.exports = {
 
                     const exp = Date.now() + 1000 * 60 * 60 * 48;
 
-                    res.status(201).header('x-auth-token', token).send({
+                    res.status(200).header('x-auth-token', token).send({
                         id: user.dataValues.id,
                         exp
                     });
