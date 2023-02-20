@@ -42,7 +42,6 @@ function App() {
   console.log('from app', authContext);
 
   return (
-    // <RouterProvider router={router} />
 
     <div>
       {authContext.token && <Navbar />}
@@ -51,7 +50,7 @@ function App() {
         <Route path='/auth' element={!authContext.token ? <Auth /> : <Navigate to='/' />} />
         <Route path='/meal-tracker' element={authContext.token ? <MealLogs /> : <Navigate to='/auth' />} />
         <Route path='/profile' element={authContext.token ? <Profile /> : <Navigate to='/auth' />} />
-        <Route path='*' element={<Navigate to='/' />} />
+        <Route path='*' element={<ErrorPage />} />
       </Routes>
     </div>
   );
