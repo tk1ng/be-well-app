@@ -18,10 +18,13 @@ const Navbar = () => {
                         <NavLink to='/' className={({ isActive }) => isActive ? styles.active : undefined} end>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? styles.active : undefined} to='/profile'>Profile</NavLink>
+                        <NavLink to='/meal-tracker'>Entries</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/meal-tracker'>Entries</NavLink>
+                        <NavLink to='/wellness'>Wellness</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={({ isActive }) => isActive ? styles.active : undefined} to='/profile'>Profile</NavLink>
                     </li>
                     <li>
                         <button className={styles.signOutBtn} onClick={handleSignOut}>Sign Out</button>

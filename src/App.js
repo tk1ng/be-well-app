@@ -9,6 +9,7 @@ import MealLogs from './components/mealLogs/MealLogs';
 import Navbar from './components/navBar/Navbar';
 import Profile from './components/Profile';
 import RootLayout from './components/RootLayout';
+import Wellness from './components/wellness/Wellness';
 
 // const router = createBrowserRouter([
 //   {
@@ -49,6 +50,7 @@ function App() {
         <Route path='/auth' element={!authContext.token ? <Auth /> : <Navigate to='/' />} />
         <Route path='/meal-tracker' element={authContext.token ? <MealLogs /> : <Navigate to='/auth' />} />
         <Route path='/profile' element={authContext.token ? <Profile /> : <Navigate to='/auth' />} />
+        <Route path='/wellness' element={authContext.token ? <Wellness /> : <Navigate to='/auth' />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </div>

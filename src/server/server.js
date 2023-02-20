@@ -11,6 +11,7 @@ const Wellness_score = require('./models/wellness');
 const { register, login } = require('./controllers/auth');
 const { isAuthenticated } = require('./middleware/isAuthenticated');
 const { getEntries } = require('./controllers/mealEntries');
+const { getWellness } = require('./controllers/wellnessScores');
 
 const { REACT_APP_SERVER_PORT } = process.env;
 const app = express();
@@ -24,6 +25,9 @@ app.post('/login', login);
 // TODO: Set up routes for retrieving data:
 // getting all logs ordered chronologically
 app.get('/entries', isAuthenticated, getEntries)
+
+// getting wellness scores of all time
+app.get('/scores', isAuthenticated, getWellness)
 
 // getting logs for a single day
 // getting just one entry(maybe this can be a task just for frontend?)
