@@ -1,54 +1,27 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useCallback } from 'react';
+import { calculateRemainingTime, getLocalData } from './utils/token';
 
 
 let logoutTimer;
 
-export const AuthContext = createContext({
+const AuthContext = createContext({
     token: '',
     login: () => { },
     logout: () => { }
 })
 
-const calculateRemainingTime = (exp) => {
-    const currentTime = new Date().getTime()
-    const expTime = exp
-    const remainingTime = expTime - currentTime
-    return remainingTime
-}
-
-const getLocalData = () => {
-    const storedToken = localStorage.getItem('token');
-    const storedExp = localStorage.getItem('expirationTime');
-
-    const remainingTime = calculateRemainingTime(storedExp);
-
-    if (remainingTime <= 1000 * 60 * 30) {
-        localStorage.removeItem('token');
-        localStorage.removeItem('expirationTime');
-        return null
-    }
-
-
-    return {
-        token: storedToken,
-        duration: remainingTime,
-    }
-}
-
-const AuthContextProvider = (props) => {
+export const AuthContextProvider = (props) => {
     let initialToken;
     const localData = getLocalData();
-
-    const [token, setToken] = useState(initialToken);
-    const [userId, setUserId] = useState(null);
-
-    console.log('From authContext', localData);
 
     if (localData) {
         initialToken = localData.token
     }
 
-    const logout = () => {
+    const [token, setToken] = useState(initialToken);
+    const [userId, setUserId] = useState(null);
+
+    const logout = useCallback(() => {
         setToken(null);
         setUserId(null);
 
@@ -59,7 +32,7 @@ const AuthContextProvider = (props) => {
         if (logoutTimer) {
             clearTimeout(logoutTimer);
         }
-    }
+    }, []);
 
     const login = (token, exp, userId) => {
         setToken(token);
@@ -89,4 +62,6 @@ const AuthContextProvider = (props) => {
     )
 }
 
-export default AuthContextProvider;
+// export default AuthContextProvider;
+
+export default AuthContext;
