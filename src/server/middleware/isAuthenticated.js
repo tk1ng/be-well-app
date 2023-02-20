@@ -6,7 +6,7 @@ const { REACT_APP_JWT_SECRET } = process.env;
 
 module.exports = {
     isAuthenticated: (req, res, next) => {
-        const headerToken = req.get('Authorization')
+        const headerToken = req.header('x-auth-token');
 
         // if no Authorization request header is present, error is thrown
         if (!headerToken) {
@@ -15,12 +15,14 @@ module.exports = {
         }
 
         try {
-            const token = jwt.verify(headerToken, REACT_APP_JWT_SECRET);
+            const validToken = jwt.verify(headerToken, REACT_APP_JWT_SECRET);
 
-            if (!token) {
+            if (!validToken) {
                 const error = new Error('Not authenticated.');
                 error.statusCode = 401;
                 throw error;
+            } else {
+                req.user = validToken;
             }
 
         } catch (err) {
