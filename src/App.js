@@ -5,7 +5,7 @@ import { checkAuthLoader } from './utils/authLoader';
 import Auth from './components/Auth';
 import ErrorPage from './views/ErrorPage';
 import Home from './components/Home';
-import MealLogs from './components/mealLogs/mealLogs';
+import MealLogs from './components/mealLogs/MealLogs';
 import Navbar from './components/navBar/Navbar';
 import Profile from './components/Profile';
 import RootLayout from './components/RootLayout';
@@ -39,7 +39,6 @@ import RootLayout from './components/RootLayout';
 function App() {
 
   const authContext = useContext(AuthContext);
-  console.log('from app', authContext);
 
   return (
 
