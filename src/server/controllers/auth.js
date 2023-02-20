@@ -73,7 +73,7 @@ module.exports = {
     }
 }
 
-const createToken = (email, id) => {
+const createToken = ({ email, id }) => {
     const { REACT_APP_JWT_SECRET } = process.env;
 
     return jwt.sign({ email, id }, REACT_APP_JWT_SECRET, {
