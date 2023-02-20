@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { AuthContextProvider } from './store/authContext';
+import { BrowserRouter } from 'react-router-dom';
+import AuthContextProvider from './store/authContext';
 import './index.css';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
@@ -10,6 +11,9 @@ root.render(
   <React.StrictMode>
     <AuthContextProvider>
       <App />
+      {/* <BrowserRouter>
+        <App />
+      </BrowserRouter> */}
     </AuthContextProvider>
   </React.StrictMode>
 );

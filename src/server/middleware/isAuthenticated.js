@@ -10,23 +10,22 @@ module.exports = {
 
         // if no Authorization request header is present, error is thrown
         if (!headerToken) {
-            console.log('ERROR IN auth middleware')
-            res.sendStatus(401)
+            console.log('ERROR IN auth middleware');
+            return res.status(401).send('Access denied. No token provided.');
         }
 
-        let token;
-
         try {
-            token = jwt.verify(headerToken, REACT_APP_JWT_SECRET);
+            const token = jwt.verify(headerToken, REACT_APP_JWT_SECRET);
+
+            if (!token) {
+                const error = new Error('Not authenticated.');
+                error.statusCode = 401;
+                throw error;
+            }
+
         } catch (err) {
             err.statusCode = 500;
             throw err;
-        }
-
-        if (!token) {
-            const error = new Error('Not authenticated.');
-            error.statusCode = 401;
-            throw error;
         }
 
         next()

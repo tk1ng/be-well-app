@@ -3,3 +3,22 @@ li a.active {
     color: red;
     text-decoration: underline;
 }
+
+a {
+    text-decoration: none;
+} 
+
+.navBar {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2rem;
+}
+
+.navBar li {
+    list-style-type: none;
+}
+
+.signOutBtn {
+    background-color: transparent;
+    border: none;
+}

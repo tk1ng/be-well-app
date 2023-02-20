@@ -21,6 +21,16 @@ app.use(express.json());
 app.post('/register', register);
 app.post('/login', login);
 
+// TODO: Set up routes for retrieving data:
+// getting all logs ordered chronologically
+// getting logs for a single day
+// getting just one entry(maybe this can be a task just for frontend?)
+// getting wellness scores of all time
+// getting wellness scores for one day(presented using chartjs?)
+// app.get('/logs', getLogs)
+// app.get('/logs/:id', getSingleLog)
+// app.get('/scores', getScores)
+
 Entry.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
 Wellness_score.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
 User.hasMany(Entry);

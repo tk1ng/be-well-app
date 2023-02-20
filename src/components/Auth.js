@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import AuthContext from '../store/authContext';
+import { AuthContext } from '../store/authContext';
 import styles from './Auth.module.css';
 
 const Auth = () => {
@@ -50,6 +50,8 @@ const Auth = () => {
         <main>
             <h1>APP NAME</h1>
             <form className={styles.authForm} onSubmit={submitHandler}>
+                {register && <input
+                    className={styles.formInput} type='text' placeholder='Obie Wan' onChange={emailChangeHandler} />}
                 <input
                     className={styles.formInput} type='text' placeholder='name@email.com' value={emailInput} onChange={emailChangeHandler} />
                 <input

@@ -3,7 +3,7 @@ import { createContext, useState } from 'react';
 
 let logoutTimer;
 
-const AuthContext = createContext({
+export const AuthContext = createContext({
     token: '',
     login: () => { },
     logout: () => { }
@@ -18,13 +18,13 @@ const calculateRemainingTime = (exp) => {
 
 const getLocalData = () => {
     const storedToken = localStorage.getItem('token');
-    const storedExp = localStorage.getItem('exp');
+    const storedExp = localStorage.getItem('expirationTime');
 
     const remainingTime = calculateRemainingTime(storedExp);
 
     if (remainingTime <= 1000 * 60 * 30) {
         localStorage.removeItem('token');
-        localStorage.removeItem('exp');
+        localStorage.removeItem('expirationTime');
         return null
     }
 
@@ -35,14 +35,14 @@ const getLocalData = () => {
     }
 }
 
-
-
-export const AuthContextProvider = (props) => {
+const AuthContextProvider = (props) => {
     let initialToken;
     const localData = getLocalData();
 
     const [token, setToken] = useState(initialToken);
     const [userId, setUserId] = useState(null);
+
+    console.log('From authContext', localData);
 
     if (localData) {
         initialToken = localData.token
@@ -89,4 +89,4 @@ export const AuthContextProvider = (props) => {
     )
 }
 
-export default AuthContext;
+export default AuthContextProvider;
