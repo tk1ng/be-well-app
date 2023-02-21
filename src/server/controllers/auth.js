@@ -9,7 +9,7 @@ const User = require('../models/user');
 module.exports = {
     register: async (req, res) => {
         try {
-            const { email, password } = req.body;
+            const { email, password, name } = req.body;
             const user = await User.findOne({ where: { email: email } });
 
             if (user) {
@@ -19,7 +19,7 @@ module.exports = {
             const salt = await bcrypt.genSalt(10);
             const hashedPass = await bcrypt.hash(password, salt);
 
-            const newUser = await User.create({ email: email, passHash: hashedPass });
+            const newUser = await User.create({ email: email, passHash: hashedPass, name: name });
 
             const token = createToken({ email: newUser.dataValues.email, id: newUser.dataValues.id });
             const exp = Date.now() + 1000 * 60 * 60 * 48;
@@ -28,6 +28,7 @@ module.exports = {
                 .header('x-auth-token', token)
                 .header('access-control-expose-headers', 'x-auth-token')
                 .send({
+                    name: newUser.dataValues.name,
                     email: newUser.dataValues.email,
                     id: newUser.dataValues.id,
                     exp
@@ -61,6 +62,7 @@ module.exports = {
                         .header('x-auth-token', token)
                         .header('access-control-expose-headers', 'x-auth-token')
                         .send({
+                            name: user.dataValues.name,
                             id: user.dataValues.id,
                             exp
                         });

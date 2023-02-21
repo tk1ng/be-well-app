@@ -5,11 +5,16 @@ import AuthContext from '../context/authContext';
 import styles from './Auth.module.css';
 
 const Auth = () => {
+    const [nameInput, setNameInput] = useState('');
     const [emailInput, setEmailInput] = useState('');
     const [password, setPassword] = useState('');
     const [register, setRegister] = useState(true);
 
     const authContext = useContext(AuthContext);
+
+    const nameChangeHandler = (event) => {
+        setNameInput(event.target.value)
+    }
 
     const emailChangeHandler = (event) => {
         setEmailInput(event.target.value)
@@ -25,21 +30,22 @@ const Auth = () => {
         const endpoint = register ? 'register' : 'login';
         const body = {
             email: emailInput,
-            password,
+            name: nameInput,
+            password
         }
 
         axios.post(`http://localhost:4040/${endpoint}`, body)
             .then(res => {
-                const { email, id, exp } = res.data;
+                const { name, email, id, exp } = res.data;
                 const token = res.headers['x-auth-token'];
 
-                console.log('From Auth', id, exp, token);
-
-                authContext.login(token, exp, id);
+                console.log('From AUTH', name, res.data);
+                authContext.login(token, exp, id, name);
 
             })
             .catch(err => { console.log(err) })
 
+        setNameInput('');
         setEmailInput('');
         setPassword('');
     }
@@ -53,7 +59,7 @@ const Auth = () => {
             <h1>APP NAME</h1>
             <form className={styles.authForm} onSubmit={submitHandler}>
                 {register && <input
-                    className={styles.formInput} type='text' placeholder='Obie Wan' onChange={emailChangeHandler} />}
+                    className={styles.formInput} type='text' placeholder='Obie Wan' onChange={nameChangeHandler} value={nameInput} />}
                 <input
                     className={styles.formInput} type='text' placeholder='name@email.com' value={emailInput} onChange={emailChangeHandler} />
                 <input

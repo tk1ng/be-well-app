@@ -20,6 +20,7 @@ export const AuthContextProvider = (props) => {
 
     const [token, setToken] = useState(initialToken);
     const [userId, setUserId] = useState(null);
+    const [name, setName] = useState(null);
 
     const logout = useCallback(() => {
         setToken(null);
@@ -34,9 +35,11 @@ export const AuthContextProvider = (props) => {
         }
     }, []);
 
-    const login = (token, exp, userId) => {
+    const login = (token, exp, userId, name) => {
         setToken(token);
         setUserId(userId);
+        setName(name);
+        console.log(name)
 
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
@@ -51,7 +54,8 @@ export const AuthContextProvider = (props) => {
         token,
         login,
         logout,
-        userId
+        userId,
+        name
     }
 
 

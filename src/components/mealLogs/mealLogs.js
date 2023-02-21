@@ -1,13 +1,18 @@
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 import AuthContext from '../../context/authContext';
 import styles from './MealLogs.module.css';
 
 const MealLogs = () => {
+    const currDate = moment();
+
     const { token, userId } = useContext(AuthContext);
     const [entries, setEntries] = useState([]);
     const [descInput, setDescInput] = useState('');
     const [noteInput, setNoteInput] = useState('');
+    const [timeInput, setTimeInput] = useState(currDate.format('HH:mm'));
+    const [dateInput, setDateInput] = useState(currDate.format('YYYY-MM-DD'));
 
     useEffect(() => {
         axios.get(`http://localhost:4040/entries`, {
@@ -35,7 +40,6 @@ const MealLogs = () => {
         })
             .then(res => {
                 setEntries([...entries, res.data]);
-                console.log(entries);
                 setDescInput('');
                 setNoteInput('');
             })
@@ -45,7 +49,7 @@ const MealLogs = () => {
     return (
         <>
             <h1>
-                Meal Tracker
+                {currDate.format('[Today - ] MMM Do')}
             </h1>
             <div className={styles.entryContainer}>
                 {!entries.length ? 'No entries yet.' :
@@ -53,6 +57,7 @@ const MealLogs = () => {
                         return <div className={styles.entry} key={entry.id}>
                             <p>{entry.description}</p>
                             <p>{entry.createdAt}</p>
+                            <button>edit</button>
                         </div>
                     })}
             </div>
@@ -60,6 +65,8 @@ const MealLogs = () => {
                 <label>What's on the menu?
                     <br></br><input type="text" name="description" value={descInput} onChange={e => setDescInput(e.target.value)} />
                 </label>
+                <input type="date" name="date" value={dateInput} onChange={e => setDateInput(e.target.value)}></input>
+                <input type="time" name="time" value={timeInput} onChange={e => setTimeInput(e.target.value)}></input>
                 <label>Notes</label>
                 <textarea type="text" name="notes" value={noteInput} onChange={e => setNoteInput(e.target.value)} />
                 <button type="Submit" >Log A Meal</button>

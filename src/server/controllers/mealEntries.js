@@ -14,11 +14,11 @@ module.exports = {
         })
     },
     addEntry: (req, res) => {
-        const { description, notes } = req.body;
+        const { date, time, description, notes } = req.body;
         const id = req.user.id;
         console.log('Creating...', req.body);
 
-        Entry.create({ userId: id, description, notes })
+        Entry.create({ userId: id, date, time, description, notes })
             .then(newEntry => {
                 res.status(201).send(newEntry);
             })

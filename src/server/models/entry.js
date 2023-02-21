@@ -15,6 +15,12 @@ const Entry = sequelize.define('entry', {
     },
     notes: {
         type: DataTypes.STRING
+    },
+    time: {
+        type: DataTypes.STRING
+    },
+    date: {
+        type: DataTypes.STRING
     }
 });
 
