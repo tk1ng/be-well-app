@@ -12,5 +12,15 @@ module.exports = {
         }).then(entries => {
             res.status(200).send(entries);
         })
+    },
+    addEntry: (req, res) => {
+        const { description, notes } = req.body;
+        const id = req.user.id;
+        console.log('Creating...', req.body);
+
+        Entry.create({ userId: id, description, notes })
+            .then(newEntry => {
+                res.status(201).send(newEntry);
+            })
     }
 }

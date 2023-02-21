@@ -1,0 +1,30 @@
+.entryContainer {
+    margin: 1rem 1.5rem;
+    background-color: cornflowerblue;
+    border-radius: 7px;
+    padding: 0.5rem;
+}
+
+.entry {
+    background-color: rgb(54, 89, 154);
+    border-radius: 7px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.mealForm {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem;
+    gap: 1rem;
+}
+
+.mealForm input {
+    min-width: 100%;
+    padding: 0.8rem;
+    margin-top: 1rem;
+}
+
+textarea {
+    height: 100px;
+}
