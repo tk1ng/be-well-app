@@ -7,8 +7,8 @@ import ErrorPage from './views/ErrorPage';
 import Home from './components/Home';
 import MealLogs from './components/mealLogs/MealLogs';
 import Navbar from './components/navBar/Navbar';
-import Profile from './components/Profile';
-import RootLayout from './components/RootLayout';
+import Profile from './components/profile/Profile';
+import RootLayout from './components/rootlayout/RootLayout';
 import Wellness from './components/wellness/Wellness';
 
 // const router = createBrowserRouter([
