@@ -18,10 +18,10 @@ const Navbar = () => {
                         <NavLink to='/' className={({ isActive }) => isActive ? styles.active : undefined} end>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/meal-tracker'>Entries</NavLink>
+                        <NavLink to='/meal-tracker' className={({ isActive }) => isActive ? styles.active : undefined}>Entries</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/wellness'>Wellness</NavLink>
+                        <NavLink to='/wellness' className={({ isActive }) => isActive ? styles.active : undefined}>Wellness</NavLink>
                     </li>
                     <li>
                         <NavLink className={({ isActive }) => isActive ? styles.active : undefined} to='/profile'>Profile</NavLink>
