@@ -55,7 +55,7 @@ const Auth = () => {
     }
 
     return (
-        <main>
+        <main className={styles.auth}>
             <h1>APP NAME</h1>
             <form className={styles.authForm} onSubmit={submitHandler}>
                 {register && <input

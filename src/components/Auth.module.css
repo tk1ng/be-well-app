@@ -12,7 +12,7 @@ main {
     justify-content: space-evenly;
 }
 
-p {
+.auth p {
     display: inline-block;
     margin-right: .6rem;
 }
