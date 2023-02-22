@@ -1,0 +1,36 @@
+.avgDailyScore {
+    width: 85%;
+    height: 250px;
+    margin: 0 auto;
+    background-color: cornflowerblue;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.scoreContainer {
+    height: 300px;
+    overflow: scroll;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    width: 85%;
+    margin: 1rem auto;
+    
+}
+
+.scores p {
+    display: inline-block;
+}
+
+.wellnessForm {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.wellnessForm input {
+    
+}

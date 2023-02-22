@@ -22,5 +22,30 @@ module.exports = {
             .then(newEntry => {
                 res.status(201).send(newEntry);
             })
+    },
+    editEntry: (req, res) => {
+        const { entryId, date, time, description, notes } = req.body;
+        const id = req.user.id;
+
+        Entry.update({ date, time, description, notes }, {
+            where: {
+                id: entryId
+            }
+        })
+            .then(newEntry => {
+                res.status(201).send(newEntry);
+            })
+    },
+    deleteEntry: (req, res) => {
+        const { entryId, date, time, description, notes } = req.body;
+
+        Entry.destroy({
+            where: {
+                id: entryId
+            }
+        })
+            .then(newEntry => {
+                res.status(201).send(newEntry);
+            })
     }
 }

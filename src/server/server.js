@@ -10,8 +10,8 @@ const User = require('./models/user');
 const Wellness_score = require('./models/wellness');
 const { register, login } = require('./controllers/auth');
 const { isAuthenticated } = require('./middleware/isAuthenticated');
-const { getEntries, addEntry } = require('./controllers/mealEntries');
-const { getWellness } = require('./controllers/wellnessScores');
+const { getEntries, addEntry, editEntry, deleteEntry } = require('./controllers/mealEntries');
+const { getWellness, addScore } = require('./controllers/wellnessScores');
 
 const { REACT_APP_SERVER_PORT } = process.env;
 const app = express();
@@ -26,9 +26,12 @@ app.post('/login', login);
 // getting all logs ordered chronologically
 app.get('/entries', isAuthenticated, getEntries)
 app.post('/entries', isAuthenticated, addEntry)
+app.put('/entries', isAuthenticated, editEntry)
+app.delete('/entries', isAuthenticated, deleteEntry)
 
 // getting wellness scores of all time
 app.get('/scores', isAuthenticated, getWellness)
+app.post('/scores', isAuthenticated, addScore)
 
 // getting logs for a single day
 // getting just one entry(maybe this can be a task just for frontend?)

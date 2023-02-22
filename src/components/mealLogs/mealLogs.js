@@ -46,6 +46,14 @@ const MealLogs = () => {
             .catch(err => console.log(err));
     }
 
+    const handleEdit = (entryId) => {
+
+    }
+
+    const handleDelete = (entryId) => {
+
+    }
+
     return (
         <>
             <h1>
@@ -57,7 +65,8 @@ const MealLogs = () => {
                         return <div className={styles.entry} key={entry.id}>
                             <p>{entry.description}</p>
                             <p>{entry.createdAt}</p>
-                            <button>edit</button>
+                            <button onClick={() => handleEdit(entry.id)}>edit</button>
+                            <button onClick={() => handleDelete(entry.id)}>delete</button>
                         </div>
                     })}
             </div>
