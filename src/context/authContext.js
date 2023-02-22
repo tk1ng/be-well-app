@@ -39,7 +39,6 @@ export const AuthContextProvider = (props) => {
         setToken(token);
         setUserId(userId);
         setName(name);
-        console.log(name)
 
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
