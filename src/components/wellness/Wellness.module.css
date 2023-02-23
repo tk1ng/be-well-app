@@ -2,7 +2,8 @@
     width: 85%;
     height: 250px;
     margin: 0 auto;
-    background-color: cornflowerblue;
+    background-color: var(--secondary-color);
+    color: var(--light-text);
     padding: 1rem;
     border-radius: 5px;
 }
