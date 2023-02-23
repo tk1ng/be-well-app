@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
 
+:root {
+  --secondary-color: #08285ce3;
+  --highlight: #F7971E;
+  --light-text: #ffffffa6;
+  --primary-gradient: linear-gradient(to bottom left , #FFD200, #F7971E);
+}
+
 * {
   box-sizing: border-box;
 }

@@ -1,13 +1,33 @@
 .profileImg {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    background-color: cornflowerblue;
     margin: 3rem auto;
 }
 
+.profileImg img {
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+}
+
+.editBtn {
+    background-color: transparent;
+    border: none;
+}
+
+.editBtn svg {
+    color: rgba(30, 39, 74, 0.25);
+}
+
 .signOutBtn {
-    
+    background-color: transparent;
+    border: none;
+    letter-spacing: 0.3rem;
+    font-weight: bold;
+    color: var(--highlight);
+    margin-top: 10rem
+}
+
+.signOutBtn svg {
+margin-top: 3px;
 }
 
 .userInfo {
@@ -18,4 +38,8 @@
 .userInfo p {
     margin-bottom: 1rem;
     text-align: left;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: rgba(30, 39, 74, 0.6);
+    opacity: 0.5;
 }

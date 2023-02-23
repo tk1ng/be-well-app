@@ -56,7 +56,7 @@ const Auth = () => {
 
     return (
         <main className={styles.authContent}>
-            <h1>APP NAME</h1>
+            <h1>BELLY</h1>
             <form className={styles.authForm} onSubmit={submitHandler}>
                 {register && <input
                     className={styles.formInput} type='text' placeholder='Obie Wan' onChange={nameChangeHandler} value={nameInput} />}

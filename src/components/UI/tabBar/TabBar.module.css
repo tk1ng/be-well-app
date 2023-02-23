@@ -31,5 +31,5 @@
 }
 
 .active svg{
-    color: rgb(80, 139, 248);
+    color: var(--secondary-color);
 }
