@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { RiLogoutBoxRLine } from 'react-icons/ri';
 import AuthContext from '../../context/authContext';
 import styles from './Profile.module.css';
 
@@ -18,7 +19,7 @@ const Profile = () => {
                 <p>D.O.B.</p>
                 <p>Diet</p>
             </div>
-            <button className={styles.signOutBtn} onClick={signOutHandler}>Sign Out</button>
+            <button className={styles.signOutBtn} onClick={signOutHandler}><RiLogoutBoxRLine /></button>
         </main>
     );
 }

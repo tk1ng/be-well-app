@@ -55,7 +55,7 @@ const MealLogs = () => {
     }
 
     return (
-        <>
+        <div className="content">
             <h1>
                 {currDate.format('[Today - ] MMM Do')}
             </h1>
@@ -80,7 +80,7 @@ const MealLogs = () => {
                 <textarea type="text" name="notes" value={noteInput} onChange={e => setNoteInput(e.target.value)} />
                 <button type="Submit" >Log A Meal</button>
             </form>
-        </>
+        </div>
 
     );
 }

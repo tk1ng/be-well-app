@@ -59,7 +59,7 @@ const Wellness = () => {
     }
 
     return (
-        <>
+        <div className="content">
             <div className={styles.avgDailyScore}>Average wellness rating for current day here</div>
             <div className={styles.scoreContainer}>
                 {wellness.length === 0 ? 'No scores yet.' : wellness.map(w => {
@@ -78,7 +78,7 @@ const Wellness = () => {
                 <input name="wellness-score" type="radio" id="poor" value="1" onChange={handleChange} />
                 <button type="Submit" >Add</button>
             </form>
-        </>
+        </div>
     );
 }
 
