@@ -61,7 +61,7 @@ function App() {
 
   return (
 
-    <div className="mainContainer">
+    <div>
       {authContext.token && !isMobile && <Navbar />}
       <Routes>
         <Route path='/' element={authContext.token ? <Home /> : <Navigate to='/auth' />} />

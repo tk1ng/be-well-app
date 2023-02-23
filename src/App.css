@@ -14,7 +14,7 @@ body {
 }
 
 @media screen and (max-width: 640px) {
-  .mainContainer {
+  .content {
     margin-top: 3rem;
   }
 }
