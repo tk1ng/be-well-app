@@ -1,16 +1,29 @@
 li a.hover,
 li a.active {
-    color: red;
+    color: var(--secondary-color);
     text-decoration: underline;
 }
 
 a {
     text-decoration: none;
-} 
+    color: var(--link);
+}
+
+a:hover {
+    color: purple;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+}
 
 .navBar {
+    background: var(--primary-gradient);
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 4.5rem;
     padding: 2rem;
 }
 
@@ -21,4 +34,13 @@ a {
 .signOutBtn {
     background-color: transparent;
     border: none;
+}
+
+.signOutBtn svg {
+    color: var(--light-text);
+}
+
+.signOutBtn svg:hover {
+    color: purple;
+    cursor: pointer;
 }
