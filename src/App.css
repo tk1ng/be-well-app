@@ -4,15 +4,12 @@
   --secondary-color: #08285ce3;
   --highlight: #F7971E;
   --light-text: #ffffffa6;
+  --bg-color: #f3f7fd;
   --primary-gradient: linear-gradient(to bottom left , #FFD200, #F7971E);
 }
 
-* {
-  box-sizing: border-box;
-}
-
 body {
-  background-color: #f3f7fd;
+  background: var(--bg-color);
   font-family: 'Montserrat', sans-serif;
 }
 

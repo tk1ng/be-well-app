@@ -60,8 +60,7 @@ function App() {
   const isMobile = windowDimension <= 640;
 
   return (
-
-    <div>
+    <>
       {authContext.token && !isMobile && <Navbar />}
       <Routes>
         <Route path='/' element={authContext.token ? <Home /> : <Navigate to='/auth' />} />
@@ -72,7 +71,7 @@ function App() {
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       {authContext.token && isMobile && <TabBar />}
-    </div>
+    </>
   );
 }
 
