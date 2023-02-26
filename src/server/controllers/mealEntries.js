@@ -8,7 +8,10 @@ module.exports = {
         Entry.findAll({
             where: {
                 userId: id
-            }
+            },
+            order: [
+                ['createdAt', 'DESC']
+            ]
         }).then(entries => {
             res.status(200).send(entries);
         })
@@ -37,15 +40,17 @@ module.exports = {
             })
     },
     deleteEntry: (req, res) => {
-        const { entryId, date, time, description, notes } = req.body;
+        const { entryId } = req.params;
 
         Entry.destroy({
             where: {
                 id: entryId
             }
         })
-            .then(newEntry => {
-                res.status(201).send(newEntry);
+            .then(result => {
+                res.sendStatus(204);
             })
+            .catch(err => console.log(err))
+
     }
 }

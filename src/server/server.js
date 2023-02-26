@@ -26,8 +26,8 @@ app.post('/login', login);
 // getting all logs ordered chronologically
 app.get('/entries', isAuthenticated, getEntries)
 app.post('/entries', isAuthenticated, addEntry)
-app.put('/entries', isAuthenticated, editEntry)
-app.delete('/entries', isAuthenticated, deleteEntry)
+app.put('/entries/:entryId', isAuthenticated, editEntry)
+app.delete('/entries/:entryId', isAuthenticated, deleteEntry)
 
 // getting wellness scores of all time
 app.get('/scores', isAuthenticated, getWellness)
