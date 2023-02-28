@@ -1,5 +1,5 @@
 .entryContainer {
-    height: 550px;
+    height: 530px;
     margin: 1rem 1.5rem;
     border-radius: 7px;
     padding: 0.5rem;
@@ -45,6 +45,7 @@
 
 .logTitle {
     color: var(--secondary-color);
+    margin-bottom: 4rem;
 }
 
 .mealForm {
@@ -90,4 +91,10 @@
 
 textarea {
     height: 100px;
+}
+
+@media screen and (min-width: 675px) {
+    .entryContainer {
+        height: 950px;
+    }
 }

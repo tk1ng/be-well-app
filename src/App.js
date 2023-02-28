@@ -2,9 +2,9 @@ import { useContext, useEffect, useState } from 'react';
 import { createBrowserRouter, RouterProvider, Routes, Route, Navigate } from 'react-router-dom';
 import AuthContext from './context/authContext';
 import { checkAuthLoader } from './utils/authLoader';
-import Auth from './components/Auth';
+import Auth from './components/auth/Auth';
 import ErrorPage from './views/ErrorPage';
-import Home from './components/Home';
+import Home from './components/dashboard/Home';
 import MealLogs from './components/mealLogs/MealLogs';
 import Navbar from './components/navBar/Navbar';
 import Profile from './components/profile/Profile';
@@ -12,32 +12,6 @@ import RootLayout from './components/rootlayout/RootLayout';
 import TabBar from './components/UI/tabBar/TabBar';
 import Wellness from './components/wellness/Wellness';
 import './App.css';
-
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <RootLayout />,
-//     errorElement: <ErrorPage />,
-//     children: [
-//       {
-//         path: '/',
-//         element: <Home />,
-//         loader: checkAuthLoader
-//       },
-//       {
-//         path: '/profile',
-//         element: <Profile />,
-//         loader: checkAuthLoader
-//       },
-//       {
-//         path: '/meal-tracker',
-//         element: <MealLogs />,
-//         loader: checkAuthLoader
-//       },
-//     ]
-//   },
-//   { path: '/auth', element: <Auth /> }
-// ]);
 
 function App() {
 

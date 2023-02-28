@@ -40,7 +40,10 @@
     background-color: #f8e59f48;
     color: #000;
     border: none;
-    
+}
+
+.formInput:focus-visible {
+   outline: #fff auto 1px;
 }
 
 .formToggle {

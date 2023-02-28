@@ -22,7 +22,6 @@ const Profile = () => {
                 <div className={styles.userInfo}>
                     <p>Name: <span className={styles.details}>{authContext.name}</span></p>
                     <p>Email: <span className={styles.details}>{authContext.email}</span></p>
-                    <p>D.O.B. <span className={styles.details}>{authContext.email}</span></p>
                     <p>Diet: <span className={styles.details}>Vegan</span></p>
                     <button className={styles.editBtn}><RiEdit2Line /></button>
                 </div>

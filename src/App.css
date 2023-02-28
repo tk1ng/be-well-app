@@ -8,6 +8,7 @@
   --bg-color: #f3f7fd;
   --primary-gradient: linear-gradient(to bottom left , #FFD200, #F7971E);
 
+  --box-shadow: rgba(39, 41, 49, 0.09) 0px 3px 12px;
   --transition: 0.2s all ease;
 }
 

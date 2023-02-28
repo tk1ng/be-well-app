@@ -1,6 +1,6 @@
 .avgDailyScore {
     width: 85%;
-    height: 250px;
+    height: 175px;
     margin: 0 auto;
     background-color: var(--secondary-color);
     color: var(--light-text);
@@ -11,14 +11,18 @@
 .scoreContainer {
     height: 300px;
     overflow: scroll;
+    margin: 1.5rem 0;
 }
 
 .scores {
     display: flex;
     justify-content: space-between;
-    padding: 1rem 0;
+    padding: 1rem;
     width: 85%;
     margin: 1rem auto;
+    background-color: #ffffffa3;
+    border-radius: 7px;
+    box-shadow: rgba(39, 41, 49, 0.09) 0px 3px 12px;
     
 }
 
@@ -32,6 +36,23 @@
     flex-direction: column;
 }
 
-.wellnessForm input {
-    
+.wellnessForm button {
+    background-color: var(--highlight);
+    color: #fff;
+    margin: 1.3rem auto;
+    width: 20%;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 675px) {
+    .avgDailyScore {
+        max-width: 50%;
+    }
+
+    .wellnessForm {
+        max-width: 50%;
+        margin: 2rem auto;
+    }
 }

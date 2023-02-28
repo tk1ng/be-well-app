@@ -63,6 +63,7 @@ module.exports = {
                         .header('access-control-expose-headers', 'x-auth-token')
                         .send({
                             name: user.dataValues.name,
+                            email: user.dataValues.email,
                             id: user.dataValues.id,
                             exp
                         });

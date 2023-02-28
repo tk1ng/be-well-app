@@ -1,0 +1,34 @@
+.dailyQuote {
+    background: rgb(8,40,92);
+    background: linear-gradient(0deg, rgba(8,40,92,1) 0%, rgba(50,104,190,1) 100%);
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    color: #fff;
+    line-height: 2;
+    width: 90%;
+    height: auto;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.dailyQuote i {
+    font-size: 1.2rem;
+}
+.dailyQuote span {
+    font-weight: bold;
+    display: block;
+}
+
+.content .react-calendar {
+    margin: auto;
+}
+
+.calendar {
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 675px) {
+    .dailyQuote {
+        max-width: 50%;
+    }
+}

@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import AuthContext from '../context/authContext';
+import AuthContext from '../../context/authContext';
 import styles from './Auth.module.css';
 
 const Auth = () => {
@@ -39,8 +39,7 @@ const Auth = () => {
                 const { name, email, id, exp } = res.data;
                 const token = res.headers['x-auth-token'];
 
-                console.log('From AUTH', name, res.data);
-                authContext.login(token, exp, id, name);
+                authContext.login(token, exp, id, name, email);
 
             })
             .catch(err => { console.log(err) })

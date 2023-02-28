@@ -34,10 +34,7 @@ const Wellness = () => {
         setAverage();
     }, [token]);
 
-    console.log(wellness);
-
-    const time = moment('2023-02-22T14:46:27.988Z').format('ddd M-D-YY H:m');
-    console.log(time)
+    const formattedTime = (timestamp) => moment(timestamp).format('ddd M-D-YY H:m');
 
     const handleChange = (event) => {
         setNewScore(event.target.value);
@@ -63,7 +60,7 @@ const Wellness = () => {
             <div className={styles.avgDailyScore}>Average wellness rating for current day here</div>
             <div className={styles.scoreContainer}>
                 {wellness.length === 0 ? 'No scores yet.' : wellness.map(w => {
-                    return <div className={styles.scores}><p key={w.id}>Score: {w.score}</p><p>{moment(`${w.createdAt}`).format('ddd M-D-YY H:m')}</p></div>
+                    return <div className={styles.scores}><p key={w.id}>Score: {w.score}</p><p>{formattedTime(w.createdAt)}</p></div>
                 })}
             </div>
             <h3>How are you feeling today?</h3>
