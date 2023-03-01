@@ -42,6 +42,7 @@
     border-radius: 7px;
     padding: 0.5rem;
     overflow: scroll;
+    text-align: center;
 }
 
 .entryContainer button {
@@ -148,5 +149,10 @@ textarea {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    .mealForm {
+        max-width: 50%;
+        margin: 3rem auto;
     }
 }
