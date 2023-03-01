@@ -11,9 +11,9 @@ const Home = () => {
 
     return (
         <div className="content">
-            <h1 className={styles.date}>
+            <h2 className={styles.date}>
                 {currDate.format('[Today - ] MMM Do')}
-            </h1>
+            </h2>
             <div className={styles.dailyQuote}>
                 <i>WHAT YOU DO TODAY <span>CAN IMPROVE ALL YOUR TOMORROWS</span></i>
                 <p>- Ralph Marston</p>

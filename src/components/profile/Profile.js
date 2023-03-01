@@ -13,8 +13,6 @@ const Profile = () => {
         authContext.logout();
     }
 
-    console.log(profileImg)
-
     return (
         <IconContext.Provider value={{ size: 20 }}>
             <main className={styles.profileContainter}>

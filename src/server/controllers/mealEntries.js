@@ -27,8 +27,9 @@ module.exports = {
             })
     },
     editEntry: (req, res) => {
-        const { entryId, date, time, description, notes } = req.body;
+        const { date, time, description, notes } = req.body;
         const id = req.user.id;
+        const { entryId } = req.params;
 
         Entry.update({ date, time, description, notes }, {
             where: {

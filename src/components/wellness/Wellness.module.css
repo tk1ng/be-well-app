@@ -1,11 +1,21 @@
 .avgDailyScore {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 85%;
     height: 175px;
     margin: 0 auto;
-    background-color: var(--secondary-color);
-    color: var(--light-text);
+    background: rgb(8,40,92);
+    background: linear-gradient(0deg, rgba(8,40,92,1) 0%, rgba(50,104,190,1) 100%);
+    color: #ffffffda;
     padding: 1rem;
     border-radius: 5px;
+}
+
+.avgDailyScore span {
+    display: block;
+    font-size: 4rem;
 }
 
 .scoreContainer {

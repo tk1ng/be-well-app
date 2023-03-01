@@ -60,7 +60,7 @@ const Wellness = () => {
 
     return (
         <div className="content">
-            <div className={styles.avgDailyScore}>Average wellness rating for current day here</div>
+            <div className={styles.avgDailyScore}>Average wellness score for today is <span>3</span></div>
             <div className={styles.scoreContainer}>
                 {wellness.length === 0 ? 'No scores yet.' : wellness.map(w => {
                     return <div className={styles.scores}><p key={w.id}>Score: {w.score}</p><p>{formattedTime(w.createdAt)}</p></div>
