@@ -67,6 +67,11 @@
     border-radius: 5px;
 }
 
+.formSubmitBtn:hover {
+    cursor: pointer;
+    background-color: #305898e3;
+}
+
 @media screen and (min-width: 675px) {
     .authForm {
         max-width: 40%;

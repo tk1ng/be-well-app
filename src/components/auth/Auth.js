@@ -62,7 +62,7 @@ const Auth = () => {
                 <input
                     className={styles.formInput} type='text' placeholder='name@email.com' value={emailInput} onChange={emailChangeHandler} />
                 <input
-                    className={styles.formInput} type='text' placeholder='password' value={password} onChange={handlePasswordChange} />
+                    className={styles.formInput} type='password' placeholder='password' value={password} onChange={handlePasswordChange} />
                 <button className={styles.formSubmitBtn}>
                     {register ? 'Sign Up' : 'Sign In'}
                 </button>

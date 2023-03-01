@@ -1,4 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
+import { IconContext } from 'react-icons';
+import { BiHappyBeaming, BiSad, BiSmile } from 'react-icons/bi';
+import { FaRegMeh } from 'react-icons/fa';
 import axios from 'axios';
 import moment from 'moment';
 import AuthContext from '../../context/authContext';
@@ -50,7 +53,7 @@ const Wellness = () => {
             }
         })
             .then(res => {
-                setWellness([...wellness, res.data]);
+                setWellness([res.data, ...wellness]);
             })
             .catch(err => console.log(err));
     }
@@ -64,17 +67,19 @@ const Wellness = () => {
                 })}
             </div>
             <h3>How are you feeling today?</h3>
-            <form className={styles.wellnessForm} onSubmit={handleSubmit}>
-                <label htmlFor="great">Great</label>
-                <input name="wellness-score" type="radio" id="great" value="4" onChange={handleChange} />
-                <label htmlFor="fair">I'm Okay</label>
-                <input name="wellness-score" type="radio" id="fair" value="3" onChange={handleChange} />
-                <label htmlFor="not great">Not too Good</label>
-                <input name="wellness-score" type="radio" id="not great" value="2" onChange={handleChange} />
-                <label htmlFor="poor">It's a tough Day</label>
-                <input name="wellness-score" type="radio" id="poor" value="1" onChange={handleChange} />
-                <button type="Submit" >Add</button>
-            </form>
+            <IconContext.Provider value={{ size: 70 }}>
+                <div className={styles.wellnessForm}>
+                    <input className={styles.wellnessSelector} id="great" name="wellness" type="radio" value="4" onChange={handleChange}></input>
+                    <label className={styles.wellnessLabel} htmlFor="great" ><BiHappyBeaming /></label>
+                    <input className={styles.wellnessSelector} id="okay" name="wellness" type="radio" value="3" onChange={handleChange}></input>
+                    <label className={styles.wellnessLabel} htmlFor="okay" ><BiSmile /></label>
+                    <input className={styles.wellnessSelector} id="not-well" name="wellness" type="radio" value="2" onChange={handleChange}></input>
+                    <label className={styles.wellnessLabel} htmlFor="not-well" ><FaRegMeh /></label>
+                    <input className={styles.wellnessSelector} id="bad" name="wellness" type="radio" value="1" onChange={handleChange}></input>
+                    <label className={styles.wellnessLabel} htmlFor="bad" ><BiSad /></label>
+                    <button onClick={handleSubmit}>Submit</button>
+                </div>
+            </IconContext.Provider>
         </div>
     );
 }

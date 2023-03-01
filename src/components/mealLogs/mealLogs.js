@@ -105,8 +105,7 @@ const MealLogs = () => {
                     entries.map(entry => {
                         return <div className={styles.entry} key={entry.id}>
                             <p>{entry.description}</p>
-                            <p>{entry.notes}</p>
-                            <p>{entry.time}</p>
+                            <p className={styles.notes}>{entry.notes}</p>
                             <p className={styles.timestamp}>{formattedTime(entry.date, entry.time)}</p>
                             <button onClick={() => handleEdit(entry.id)}><RiEdit2Line /></button>
                             <button onClick={() => handleDelete(entry.id)}><RiDeleteBin6Line /></button>

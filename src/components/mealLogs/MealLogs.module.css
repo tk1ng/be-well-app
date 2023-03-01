@@ -84,9 +84,16 @@
     cursor: pointer;
 }
 
+.notes {
+    color: rgba(30, 39, 74, 0.705);
+    font-size: 0.9rem;
+    margin-top: 0.8rem;
+}
+
 .timestamp {
     margin: 1rem 0;
     color: rgba(30, 39, 74, 0.705);
+    font-size: 0.75rem;
 }
 
 textarea {
