@@ -15,8 +15,8 @@ By logging data about your diet and health, Belly helps visualize correlations b
 - Empower your health journey: Belly provides the tools to take charge of your health by making it easier to identify food-related patterns and correlations.
 - Wellness at your fingertips: With a clean and user-friendly interface, Belly makes it easy to log meals and track your health.
 ## Technologies Used
-Frontend: React
-Backend: Node.js, Express
-Database: SQL
-Testing: Vitest, Jest
-CI/CD: GitHub Actions, Husky
+- Frontend: React
+- Backend: Node.js, Express
+- Database: SQL
+- Testing: Vitest, Jest
+- CI/CD: GitHub Actions, Husky
