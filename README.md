@@ -1,6 +1,6 @@
 Track Your Health, One Meal at a Time
 
-Belly is an innovative full-stack web application designed to help users track their meals, health-related symptoms, and health stats.
+Belly is an innovative full-stack web application designed to help users track their meals, health-related symptoms, and health stats. This idea was born from my own journey navigating digestive health issues.
 
 By logging data about your diet and health, Belly helps visualize correlations between what you eat and how you feel. Whether you're dealing with digestive issues, other health concerns, or simply want to take charge of your wellness, Belly brings awareness to the foods we eat and their impact on our health.
 
